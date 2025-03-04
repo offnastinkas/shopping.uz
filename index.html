@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
+  <title>shopping.uz</title>
   <link rel="stylesheet" href="./assets/style/style.css" />
 </head>
 
@@ -13,12 +13,12 @@
     <header>
       <div class="header_top">
         <div class="header_options">
-          <div class="header_options_filter">
-            <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <div class="header_options_filter" onclick="Filter()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
               <path
-                d="M11.79 1.61564C12.3029 0.959102 11.8351 0 11.002 0H1.00186C0.168707 0 -0.299092 0.959101 0.213831 1.61564L5.03983 7.72867C5.1772 7.90449 5.25181 8.1212 5.25181 8.34432V13.7961C5.25181 13.9743 5.46724 14.0635 5.59323 13.9375L6.60536 12.9254C6.69913 12.8316 6.75181 12.7044 6.75181 12.5718V8.34432C6.75181 8.1212 6.82643 7.90449 6.96379 7.72867L11.79 1.61564Z"
-                fill="#464F60" />
+                d="M183.6 42.4C177.5 35.8 169 32 160 32s-17.5 3.8-23.6 10.4l-88 96c-11.9 13-11.1 33.3 2 45.2s33.3 11.1 45.2-2L128 146.3 128 448c0 17.7 14.3 32 32 32s32-14.3 32-32l0-301.7 32.4 35.4c11.9 13 32.2 13.9 45.2 2s13.9-32.2 2-45.2l-88-96zM320 320c0 17.7 14.3 32 32 32l50.7 0-73.4 73.4c-9.2 9.2-11.9 22.9-6.9 34.9s16.6 19.8 29.6 19.8l128 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-50.7 0 73.4-73.4c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8l-128 0c-17.7 0-32 14.3-32 32zM416 32c-12.1 0-23.2 6.8-28.6 17.7l-64 128-16 32c-7.9 15.8-1.5 35 14.3 42.9s35 1.5 42.9-14.3l7.2-14.3 88.4 0 7.2 14.3c7.9 15.8 27.1 22.2 42.9 14.3s22.2-27.1 14.3-42.9l-16-32-64-128C439.2 38.8 428.1 32 416 32zM395.8 176L416 135.6 436.2 176l-40.4 0z" />
             </svg>
+
           </div>
           <div class="header_options_search">
             <span>
@@ -28,7 +28,7 @@
                   fill="#868FA0" />
               </svg>
             </span>
-            <input type="search" name="search" placeholder="Search..." />
+            <input type="search" name="search" placeholder="Search..." onkeyup="Search(event)" />
           </div>
         </div>
         <div class="header_button">
@@ -119,6 +119,70 @@
             <div class="modal_item">
               <button class="header_modal_close_2">Yopish</button>
               <button>Qo'shish</button>
+            </div>
+          </form>
+        </div>
+      </section>
+      <!-- Edit modal box -->
+      <section class="modal_box_edit">
+        <!-- inside of modal box -->
+        <div class="content_modal_box_edit">
+          <!-- header -->
+          <div class="header_modal">
+            <h1>Mahsulot o'zgartirish</h1>
+            <button class="header_modal_close_edit">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 1L1 13.18" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+                <path d="M1 1L13 13.18" stroke="black" stroke-width="1.5" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+          </div>
+          <!-- form box  -->
+          <form action="" class="form_modal_edit" onsubmit="EditProduct(event)">
+            <!-- productName  -->
+            <div class="modal_item">
+              <label for="productName">Mahsulot nomi</label>
+              <input type="text" name="productName" id="productName" onchange="handleInputChange(event)">
+            </div>
+            <!-- productCode -->
+            <div class="modal_item">
+              <label for="productCode">Mahsulot kodi</label>
+              <input type="text" name="productCode" id="productCode" onchange="handleInputChange(event)">
+            </div>
+            <!-- description -->
+            <div class="modal_item">
+              <label for="description">Mahsulot haqida</label>
+              <input type="text" name="description" id="description" onchange="handleInputChange(event)">
+            </div>
+            <!-- product Status -->
+            <div class="modal_item">
+              <label for="productStatus ">Mahsulot holati</label>
+              <select name="productStatus" id="productStatus" onchange="handleInputChange(event)">
+                <option value="true">Bor</option>
+                <option value="false">Yo'q</option>
+              </select>
+            </div>
+            <!-- Mahsulot sof narxi  -->
+            <div class="modal_item">
+              <label for="purePrice">Mahsulot sof narxi</label>
+              <input type="text" name="purePrice" id="purePrice" onchange="handleInputChange(event)">
+            </div>
+            <!-- Ustiga qo'yilgan narx  -->
+            <div class="modal_item">
+              <label for="higherPrice">Ustiga qo'yilgan narx</label>
+              <input type="text" name="higherPrice" id="higherPrice" onchange="handleInputChange(event)">
+            </div>
+            <!-- Sotiladigan narx  -->
+            <div class="modal_item">
+              <label for="Price">Sotiladigan narx</label>
+              <input type="text" name="Price" id="Price" onchange="handleInputChange(event)">
+            </div>
+            <!-- buttons box  -->
+            <div class="modal_item">
+              <button class="header_modal_close_2_edit">Yopish</button>
+              <button>O'zgartirish</button>
             </div>
           </form>
         </div>
